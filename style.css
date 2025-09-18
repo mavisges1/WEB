@@ -1,37 +1,99 @@
 body {
-  font-family: Garamond, sans-serif;
-  background: linear-gradient(to right, #1f3084, #010623);
-  color: #fff;
-  text-align: center;
-  padding: 50px;
   margin: 0;
-  min-height: 150vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #0b0e16, #1c2340);
+  color: #f0f0f5;
+}
+
+/* Контейнер */
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 h1 {
-  font-size: 6em;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #7aa2ff;
 }
 
 p {
-  font-size: 3em;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #cdd4e0;
 }
 
-a {
-  display: inline-block;
-  text-decoration: none;
-  background: #ffffff22;
-  color: #fff;
-  padding: 12px 25px;
-  margin: 10px;
+/* Кнопка старт */
+.btn-start {
+  background: #7aa2ff;
+  border: none;
+  padding: 0.8rem 2rem;
   border-radius: 12px;
-  font-size: 1.5em;
-  transition: 0.3s;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0b0e16;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-a:hover {
-  background: #fff;
-  color: #1d2b64;
+.btn-start:hover {
+  background: #9ab7ff;
   transform: scale(1.05);
+}
+
+/* Панель управления звуком */
+.controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.control-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 1rem;
+}
+.btn-choice {
+  background: rgba(122,162,255,0.18);
+  border: 1px solid rgba(122,162,255,0.35);
+  color: #e9edf5;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .25s ease, transform .12s ease, border-color .25s ease;
+  text-align: center;
+}
+.btn-choice:hover {
+  background: rgba(122,162,255,0.28);
+  transform: translateY(-1px);
+  border-color: rgba(122,162,255,0.55);
 }
