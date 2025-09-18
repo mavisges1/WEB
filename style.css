@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", Garamond, sans-serif;
   background: linear-gradient(135deg, #0b0e16, #1c2340);
   color: #f0f0f5;
 }
@@ -96,4 +96,5 @@ p {
   background: rgba(122,162,255,0.28);
   transform: translateY(-1px);
   border-color: rgba(122,162,255,0.55);
+
 }
