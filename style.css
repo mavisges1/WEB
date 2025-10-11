@@ -22,7 +22,18 @@ body {
   background: linear-gradient(135deg, #6f0f00, #e48e0b);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  margin-top: 60px; 
+  margin-top: 200px; 
+  animation: fadeInUp 0.8s ease;
+}
+
+.container_page {
+   text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  background: linear-gradient(135deg, #6f0f00, #e48e0b);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  margin-top: -300px; 
   animation: fadeInUp 0.8s ease;
 }
 
@@ -173,16 +184,47 @@ p {
   text-decoration: underline;
 }
 
+.characters {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;   
+  align-items: flex-start;
+  padding: 0 200px;                  
+  margin-top: 200px;             
+}
+
 .character-img {
-  width: 200px;
-  border-radius: 14px;
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-  transition: transform 0.3s ease;
-  object-fit: contain
+  transition: transform 0.3s ease, width 0.3s ease;
 }
 
 .character-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+}
+
+.left-char {
+  margin-top: 50px;
+  margin-right: 60px;   
+}
+
+.right-char {
+  margin-top: 80px;
+  margin-left: 60px;  
+}
+
+@media (max-width: 768px) {
+  .characters {
+    padding: 0 40px;
+    margin-top: 60px;
+  }
+  .character-img {
+    width: 160px;
+  }
 }
 
 .header {
@@ -277,3 +319,53 @@ p {
 .contact-form button:hover {
   background: #e0554d;
 }
+
+.popup-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(2px);
+  align-items: center; justify-content: center;
+  z-index: 1000;
+}
+.popup-overlay.show { display: flex; }
+.popup-card {
+  width: min(92vw, 360px);
+  background: #fff;
+  color: #111;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  position: relative;
+}
+.popup-close {
+  position: absolute; top: 8px; right: 10px;
+  border: 0; background: transparent; font-size: 24px; cursor: pointer;
+}
+.popup-input {
+  width: 100%;
+  border: 1px solid #ddd; border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.accordion-item {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px; margin-bottom: 10px;
+  background: rgba(0,0,0,0.35);
+}
+.accordion-header {
+  width: 100%; text-align: left;
+  background: transparent; color: #ffd666;
+  border: 0; padding: 12px 16px; cursor: pointer; font-weight: 600;
+}
+.accordion-panel {
+  max-height: 0; overflow: hidden;
+  transition: max-height .25s ease;
+  padding: 0 16px 0 16px;
+}
+.accordion-item.open .accordion-panel { padding: 8px 16px 16px 16px; }
+
+.field .error-hint {
+  color: #ffb3b3; font-size: .9rem; margin-top: 6px; min-height: 1.2em;
+}
+.field.has-error .form-control { border-color: #ff6b6b; box-shadow: 0 0 0 2px rgba(255,107,107,.25); }
