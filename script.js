@@ -112,3 +112,90 @@ document.addEventListener("DOMContentLoaded", () => {
   startClock(); 
 });
 
+const themeToggle = document.createElement('button');
+themeToggle.textContent = 'Toggle Theme';
+themeToggle.classList.add('theme-toggle');
+document.body.appendChild(themeToggle);
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+});
+
+
+const greeting = document.createElement('div');
+greeting.className = 'greeting';
+document.body.prepend(greeting);
+
+const nameInput = document.createElement('input');
+nameInput.placeholder = 'Enter your name';
+document.body.prepend(nameInput);
+
+nameInput.addEventListener('input', () => {
+  greeting.textContent = `Hello, ${nameInput.value || 'Guest'}!`;
+});
+
+
+const timeBtn = document.createElement('button');
+timeBtn.textContent = 'Show Current Time';
+document.body.appendChild(timeBtn);
+
+const timeDisplay = document.createElement('p');
+document.body.appendChild(timeDisplay);
+
+timeBtn.addEventListener('click', () => {
+  timeDisplay.textContent = new Date().toLocaleTimeString();
+});
+
+
+const nav = document.querySelector('nav ul');
+if (nav) {
+  const items = nav.querySelectorAll('li a');
+  let index = 0;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      index = (index + 1) % items.length;
+      items[index].focus();
+    } else if (e.key === 'ArrowLeft') {
+      index = (index - 1 + items.length) % items.length;
+      items[index].focus();
+    }
+  });
+}
+
+
+const siteInfo = {
+  title: document.title,
+  author: 'Team WEB5',
+  showInfo() {
+    console.log(`Website: ${this.title}, Author: ${this.author}`);
+  }
+};
+siteInfo.showInfo();
+
+
+const pages = Array.from(document.querySelectorAll('a')).map(link => link.textContent);
+console.log('Site Links:', pages.filter(name => name.length > 0));
+
+
+const soundBtn = document.createElement('button');
+soundBtn.textContent = 'Play Sound';
+document.body.appendChild(soundBtn);
+
+const audio = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+soundBtn.addEventListener('click', () => audio.play());
+
+
+const animBox = document.createElement('div');
+animBox.className = 'anim-box';
+animBox.textContent = 'Hover Me!';
+document.body.appendChild(animBox);
+
+animBox.addEventListener('mouseenter', () => {
+  animBox.style.transform = 'scale(1.2)';
+  animBox.style.transition = 'transform 0.3s ease';
+});
+animBox.addEventListener('mouseleave', () => {
+  animBox.style.transform = 'scale(1)';
+});
+
